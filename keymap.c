@@ -38,7 +38,9 @@ enum custom_keycodes {
   NEO2_MINUS,
   NEO2_COMMA,
   NEO2_DOT,
-  NEO2_SHARP_S
+  NEO2_SHARP_S,
+  NEO2_GRV,
+  NEO2_ACUT
 };
 
 #define NEO2_LMOD4                   MO(NEO_4)
@@ -533,6 +535,14 @@ bool process_record_user_shifted(uint16_t keycode, keyrecord_t *record) {
         // ẞ
         SEND_STRING(SS_LSFT(SS_RALT("s")));
         break;
+      case NEO2_GRV:
+        // ¸ (cedille)
+        SEND_STRING(SS_RALT("="));
+        break;
+      case NEO2_ACUT:
+        // ~
+        SEND_STRING(SS_RALT("]"));
+        break;
       default:
         set_mods(active_modifiers);
         return true;
@@ -596,6 +606,14 @@ bool process_record_user_shifted(uint16_t keycode, keyrecord_t *record) {
         break;
       case YELDIR_CTLSTAB:
         SEND_STRING(SS_LSFT(SS_LCTL("\t")));
+        break;
+      case NEO2_GRV:
+        // `
+        SEND_STRING(SS_LSFT("="));
+        break;
+      case NEO2_ACUT:
+        // ´
+        SEND_STRING(SS_TAP(X_EQUAL));
         break;
       default:
         return true;
