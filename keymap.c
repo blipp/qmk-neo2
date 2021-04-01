@@ -118,54 +118,54 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* NEO_1: Basic layer
    *
    * ,--------------------------------------------------.           ,--------------------------------------------------.
-   * |  ----  |  1/° |  2/§ |  3/  |  4/» |  5/« | ---- |           |  DE  |  6/$ |  7/€ |  8/„ |  9/“ |  0/” |  -/—   |
+   * |  ESC   |  1/° |  2/§ |  3/  |  4/» |  5/« | ---- |           |  DE  |  6/$ |  7/€ |  8/„ |  9/“ |  0/” |  -/—   |
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-   * |  TAB   |   X  |   V  |   L  |   C  |   W  | ALTS |           | ALT  |   K  |   H  |   G  |   F  |   Q  |   ß    |
-   * |--------+------+------+------+------+------| TAB  |           | TAB  |------+------+------+------+------+--------|
+   * |  TAB   |   X  |   V  |   L  |   C  |   W  | ---  |           | ---  |   K  |   H  |   G  |   F  |   Q  |   ß    |
+   * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
    * |  NEO3  |   U  |   I  |   A  |   E  |   O  |------|           |------|   S  |   N  |   R  |   T  |   D  |   Y    |
-   * |--------+------+------+------+------+------| MB1  |           | MB2  |------+------+------+------+------+--------|
+   * |--------+------+------+------+------+------| ENTER|           | ---  |------+------+------+------+------+--------|
    * | LSHIFT |   Ü  |   Ö  |   Ä  |   P  |   Z  |      |           |      |   B  |   M  |  ,/– |  ./• |   J  | RSHIFT |
    * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-   *   | MWLF | MWDN | MWUP | MWRI | NEO4 |                                       | NEO4 | MLEF | MDOW | MUP  | MRIG |
+   *   | ---- | ---- | LCTRL| ---- | NEO4 |                                       | NEO4 | NEO3 | RCTRL| ---  | ---- |
    *   `----------------------------------'                                       `----------------------------------'
    *                                        ,-------------.       ,-------------.
-   *                                        | APP  |ctrl+s|       | ---- | FKEY |
+   *                                        | ---  |ctrl+s|       | ---- | FKEY |
    *                                 ,------|------|------|       |------+------+------.
-   *                                 |      |      | AC   |       | AC   |      |      |
-   *                                 | LGUI | LALT |------|       |------| ALTG |Space |
+   *                                 |      |      | --   |       | --   |      |      |
+   *                                 | LGUI | LALT |------|       |------| RGUI |Space |
    *                                 |      |      | LCTRL|       | RCTRL|      |      |
    *                                 `--------------------'       `--------------------'
    */
   [NEO_1] = LAYOUT_ergodox(
     // left hand side - main
-    KC_NO /* NOOP */, NEO2_1,                   NEO2_2,                   NEO2_3,                   NEO2_4,           NEO2_5,           KC_NO,
-    KC_TAB,           DE_X,                     DE_V,                     DE_L,                     DE_C,             DE_W,             YELDIR_CTLSTAB,
+    KC_ESCAPE,        NEO2_1,                   NEO2_2,                   NEO2_3,                   NEO2_4,           NEO2_5,           KC_NO,
+    KC_TAB,           DE_X,                     DE_V,                     DE_L,                     DE_C,             DE_W,             KC_NO,
     NEO2_LMOD3,       DE_U,                     DE_I,                     DE_A,                     DE_E,             DE_O,             /* --- */
-    KC_LSHIFT,        DE_UDIA,                  DE_ODIA,                  DE_ADIA,                  DE_P,             DE_Z,             KC_MS_BTN1,
-    KC_MS_WH_LEFT,    KC_MS_WH_DOWN,            KC_MS_WH_UP,              KC_MS_WH_RIGHT,           NEO2_LMOD4,       /* --- */         /* --- */
+    KC_LSHIFT,        DE_UDIA,                  DE_ODIA,                  DE_ADIA,                  DE_P,             DE_Z,             KC_ENTER,
+    KC_NO,            KC_NO,                    KC_LCTRL,                 KC_NO,                    NEO2_LMOD4,       /* --- */         /* --- */
 
     // left hand side - thumb cluster
-    /* --- */         KC_APPLICATION,   LCTL(DE_S),
-    /* KC_BSPACE */   /* KC_DELETE */   YELDIR_AC,
+    /* --- */         KC_NO,   LCTL(DE_S),
+    /* KC_BSPACE */   /* KC_DELETE */   KC_NO,
     KC_LGUI,          KC_LALT,          KC_LCTRL,
 
     // right hand side - main
     TO(DE_NORMAL),    NEO2_6,           NEO2_7,           NEO2_8,           NEO2_9,           NEO2_0,           NEO2_MINUS,
-    YELDIR_CTLTAB,    DE_K,             DE_H,             DE_G,             DE_F,             DE_Q,             NEO2_SHARP_S,
+    NEO2_GRV,            DE_K,             DE_H,             DE_G,             DE_F,             DE_Q,             NEO2_SHARP_S,
     /* --- */         DE_S,             DE_N,             DE_R,             DE_T,             DE_D,             DE_Y,
-    KC_MS_BTN2,       DE_B,             DE_M,             NEO2_COMMA,       NEO2_DOT,         DE_J,             KC_RSHIFT,
-    /* --- */         /* --- */         NEO2_RMOD4,       KC_MS_LEFT,       KC_MS_DOWN,       KC_MS_UP,         KC_MS_RIGHT,
+    NEO2_ACUT,            DE_B,             DE_M,             NEO2_COMMA,       NEO2_DOT,         DE_J,             KC_RSHIFT,
+    /* --- */         /* --- */         NEO2_RMOD4,       NEO2_LMOD3,       KC_RCTRL,         KC_NO,            KC_NO,
 
     // right hand side - thumb cluster
     KC_NO,            MO(FKEYS),        /* --- */
-    YELDIR_AC,        /* --- */         /* --- */
-    KC_RCTRL,         KC_RALT,          KC_SPACE
+    KC_NO,        /* --- */         /* --- */
+    KC_RCTRL,         KC_RGUI,          KC_SPACE
   ),
 
   /* NEO_3: Symbol layer
    *
    * ,--------------------------------------------------.           ,--------------------------------------------------.
-   * |  ----  | ---- | ---- | ---- |   ›  |   ‹  |      |           |      |   ¢ 	|   ¥  |   ‚  |   ‘  |   ’  |  ----  |
+   * |  ----  | ---- | ---- | ---- |   ›  |   ‹  |      |           |      |   ¢  |   ¥  |   ‚  |   ‘  |   ’  |  ----  |
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
    * |  ----  |   …  |   _  |   [  |   ]  |   ^  |      |           |      |   !  |   <  |   >  |   =  |   &  |  ----  |
    * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
