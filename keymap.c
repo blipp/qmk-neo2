@@ -586,10 +586,10 @@ bool process_record_user_shifted(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_TAP(X_MINS));
         break;
       case NEO2_L3_CIRCUMFLEX:
-        SEND_STRING(SS_TAP(X_GRAVE) SS_TAP(X_SPACE));
+        SEND_STRING(SS_TAP(X_GRAVE));
         break;
       case NEO2_L3_BACKTICK:
-        SEND_STRING(SS_LSFT("=") SS_TAP(X_SPACE));
+        SEND_STRING(SS_LSFT("="));
         break;
       case YELDIR_CTLTAB:
         SEND_STRING(SS_LCTL("\t"));
