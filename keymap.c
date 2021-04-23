@@ -118,48 +118,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* NEO_1: Basic layer
    *
    * ,--------------------------------------------------.           ,--------------------------------------------------.
-   * |  ESC   |  1/° |  2/§ |  3/¹ |  4/» |  5/« | ---- |           |  DE  |  6/$ |  7/€ |  8/„ |  9/“ |  0/” |  -/—   |
+   * |  ESC   |  1/° |  2/§ |  3/¹ |  4/» |  5/« |   ⌫  |           |  DE  |  6/$ |  7/€ |  8/„ |  9/“ |  0/” |  -/—   |
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-   * |  TAB   |   X  |   V  |   L  |   C  |   W  | ---  |           | `/¸  |   K  |   H  |   G  |   F  |   Q  |   ß    |
+   * |  TAB   |   X  |   V  |   L  |   C  |   W  | PSCR |           | `/¸  |   K  |   H  |   G  |   F  |   Q  |   ß    |
    * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
    * |  NEO3  |   U  |   I  |   A  |   E  |   O  |------|           |------|   S  |   N  |   R  |   T  |   D  |   Y    |
    * |--------+------+------+------+------+------| ENTER|           | ´/~  |------+------+------+------+------+--------|
    * | LSHIFT |   Ü  |   Ö  |   Ä  |   P  |   Z  |      |           |      |   B  |   M  |  ,/– |  ./• |   J  | RSHIFT |
    * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-   *   | ---- | ---- | LCTRL| ---- | NEO4 |                                       | NEO4 | NEO3 | RCTRL| ---  | ---- |
+   *   | ---- | LCTRL| -----| ---- | NEO4 |                                       | NEO4 | NEO3 | ---  | RCTRL| ---- |
    *   `----------------------------------'                                       `----------------------------------'
    *                                        ,-------------.       ,-------------.
-   *                                        | ---  |ctrl+s|       | ---- | FKEY |
+   *                                        | MS_L | MS_R |       | BTN1 | BTN2 |
    *                                 ,------|------|------|       |------+------+------.
-   *                                 |      |      | --   |       | --   |      |      |
+   *                                 |      |      | MS_U |       | FKEY |      |      |
    *                                 | LGUI | LALT |------|       |------| RGUI |Space |
-   *                                 |      |      | LCTRL|       | RCTRL|      |      |
+   *                                 |      |      | MS_D |       | MENU |      |      |
    *                                 `--------------------'       `--------------------'
    */
   [NEO_1] = LAYOUT_ergodox(
     // left hand side - main
-    KC_ESCAPE,        NEO2_1,                   NEO2_2,                   NEO2_3,                   NEO2_4,           NEO2_5,           KC_NO,
-    KC_TAB,           DE_X,                     DE_V,                     DE_L,                     DE_C,             DE_W,             KC_NO,
+    KC_ESCAPE,        NEO2_1,                   NEO2_2,                   NEO2_3,                   NEO2_4,           NEO2_5,           KC_BSPACE,
+    KC_TAB,           DE_X,                     DE_V,                     DE_L,                     DE_C,             DE_W,             KC_PSCR,
     NEO2_LMOD3,       DE_U,                     DE_I,                     DE_A,                     DE_E,             DE_O,             /* --- */
     KC_LSHIFT,        DE_UDIA,                  DE_ODIA,                  DE_ADIA,                  DE_P,             DE_Z,             KC_ENTER,
-    KC_NO,            KC_NO,                    KC_LCTRL,                 KC_NO,                    NEO2_LMOD4,       /* --- */         /* --- */
+    KC_NO,            KC_LCTRL,                 KC_NO,                 KC_NO,                    NEO2_LMOD4,       /* --- */         /* --- */
 
     // left hand side - thumb cluster
-    /* --- */         KC_NO,   LCTL(DE_S),
-    /* KC_BSPACE */   /* KC_DELETE */   KC_NO,
-    KC_LGUI,          KC_LALT,          KC_LCTRL,
+    /* --- */         KC_MS_L,   KC_MS_R,
+    /* KC_BSPACE */   /* KC_DELETE */   KC_MS_U,
+    KC_LGUI,          KC_LALT,          KC_MS_D,
 
     // right hand side - main
     TO(DE_NORMAL),    NEO2_6,           NEO2_7,           NEO2_8,           NEO2_9,           NEO2_0,           NEO2_MINUS,
     NEO2_GRV,            DE_K,             DE_H,             DE_G,             DE_F,             DE_Q,             NEO2_SHARP_S,
     /* --- */         DE_S,             DE_N,             DE_R,             DE_T,             DE_D,             DE_Y,
     NEO2_ACUT,            DE_B,             DE_M,             NEO2_COMMA,       NEO2_DOT,         DE_J,             KC_RSHIFT,
-    /* --- */         /* --- */         NEO2_RMOD4,       NEO2_LMOD3,       KC_RCTRL,         KC_NO,            KC_NO,
+    /* --- */         /* --- */         NEO2_RMOD4,       NEO2_LMOD3,       KC_NO,         KC_RCTRL,            KC_NO,
 
     // right hand side - thumb cluster
-    KC_NO,            MO(FKEYS),        /* --- */
-    KC_NO,        /* --- */         /* --- */
-    KC_RCTRL,         KC_RGUI,          KC_SPACE
+    KC_BTN1,          KC_BTN2,        /* --- */
+    MO(FKEYS),        /* --- */         /* --- */
+    KC_APP,         KC_RGUI,          KC_SPACE
   ),
 
   /* NEO_3: Symbol layer

@@ -27,7 +27,11 @@ Neo is grouped into six layers, each dedicated to a special purpose.
 At the core this is a Neo 2.0 layout adjusted for the Ergodox Infinity.
 The keymap is laid out expecting GNU/Linux using the German QWERTZ layout
 with accent circumflex, grave, and acute all dead. That's what you get
-after running `setxkbmap de`.
+after running `setxkbmap de`. Use `setxkbmap -option nbsp:level2 de` to
+get a non-breaking space with `Shift+Space`.
+
+Here is an overview of the implemented layers.
+The file `keymap.c` contains ASCII art comments for the exact mapping.
 
 * Layer 1: Neo layers 1 and 2: Lowercase, upppercase and typographical characters
 * Layer 2: Neo layer 3: Special characters for programming
@@ -37,12 +41,8 @@ after running `setxkbmap de`.
 * Layer 6: Rough estimation of Ergodox Infinity DE QWERTZ layout
 * Layer 7: Function keys
 
-Look into the file `keymap.c` for the exact mapping.
-
-
 # Usage
 
 * Setup the environment according to the [QMK tutorial](https://docs.qmk.fm/#/newbs_getting_started).
 * Add this repository as a submodule: `git submodule add https://github.com/blipp/qmk-neo2 keyboards/ergodox_infinity/keymaps/neo2`
 * Follow these instructions to build and flash: https://github.com/blipp/qmk_firmware/tree/master/keyboards/ergodox_infinity
-
