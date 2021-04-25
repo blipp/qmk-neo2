@@ -1,5 +1,7 @@
 # Neo 2 for ErgoDox on QWERTZ
 
+QMK keymap for [Neo 2](https://www.neo-layout.org/).
+
 Based on [yeldiRium/qmk-neo2](https://github.com/yeldiRium/qmk-neo2),
 which is based on [mjonuschat/ergodox_osx_neo2](https://github.com/mjonuschat/ergodox_osx_neo2).
 
@@ -46,3 +48,12 @@ The file `keymap.c` contains ASCII art comments for the exact mapping.
 * Setup the environment according to the [QMK tutorial](https://docs.qmk.fm/#/newbs_getting_started).
 * Add this repository as a submodule: `git submodule add https://github.com/blipp/qmk-neo2 keyboards/ergodox_infinity/keymaps/neo2`
 * Follow these instructions to build and flash: https://github.com/blipp/qmk_firmware/tree/master/keyboards/ergodox_infinity
+
+# Useful Links and Documentation
+
+* [QMK keycodes](https://docs.qmk.fm/#/keycodes?id=keycodes-overview)
+* [How to display the current keymap table in X](https://wiki.archlinux.org/index.php/Xmodmap#Keymap_table):
+  `xmodmap -pke`
+* [How to list layouts, variants, and options](https://unix.stackexchange.com/a/298947) with
+  `localectl`
+* [List of all setxkbmap configuration options](https://unix.stackexchange.com/a/298947)
